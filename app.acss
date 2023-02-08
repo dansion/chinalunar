@@ -1,0 +1,16 @@
+page {
+  flex: 1;
+  display: flex;
+  background: #f7f7f7;
+}
+@font-face {
+  font-family: "iconfont"; /* Project id 3004989 */
+  src: url('/asset/iconfont.woff?t=1639309308216') format('woff');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

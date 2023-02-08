@@ -1,0 +1,85 @@
+<view class="main" style="background-color:{{bgcolor}}" onTouchMove="touchMoveFun" onTouchStart="touchStartFun" onTouchEnd="touchEndFun" >
+	<view class="setting" onTap="onPress">
+		<text class="iconfont">歴</text>
+	</view>
+
+	<view class="today" data-year="{{d.year}}" data-month="{{d.month}}" data-day="{{d.day}}" animation="{{animation}}"  >
+		<view class="year-month">{{d.year}}年{{d.month}}月</view>	
+		<view class="day-text iconfont">{{d.day}}</view>	
+		<view class="week-text"><text class="iconfont">{{d.xingzuo}}</text>  星期{{d.week}} {{d.festivals}}</view>
+	</view>
+	
+	<view class="lunar">
+		<view class="lunar-data">
+			农历{{d.lunarMouth}}月<text class="iconfont">{{d.lunarMouthIs30}}</text>{{d.lunarDay}} 
+		</view>
+		<view class="lunar-ganzhi">
+			{{d.yearganzhi}} {{d.shengxiao}}年 {{d.mouthganzhi}}月 {{d.dayganzhi}}日
+		</view>
+	</view>
+	
+	<view class="yiji" >
+		<view class="yi-text {{d.yi_small}}">
+			{{d.yi}}
+		</view>
+		<view class="ji-text {{d.ji_small}}">
+			{{d.ji}}
+		</view>
+	</view>
+	
+	<view class="extend" >
+		
+		<view class="shi-jixiong">
+      <view  a:for="{{d.times}}" class="shi-item {{item.now}}" >
+        {{item.ganzhi}}<text class="iconfont {{item.style}}">{{item.jixiong}}</text>
+      </view>
+		</view>
+		
+		<view class="fangwei">
+			<view class="fang-item title-tile fangwei-fu">{{d.fu}}</view>
+			<view class="fang-item title-tile fangwei-gui1">{{d.yanggui}}</view>
+			<view class="fang-item title-tile fangwei-gui0">{{d.yingui}}</view>
+			<view class="fang-item title-tile fangwei-xi">{{d.xi}}</view>
+			<view class="fang-item title-tile fangwei-cai">{{d.cai}}</view>
+			
+		</view>
+		
+		<view class="sheng">
+			<view class="sheng-item title-tile chongsa"> 冲{{d.chong}}，煞{{d.sha}} </view>
+			<!--view class="sheng-item title-tile yuexiang">仲冬，九夜</view-->
+			<view class="sheng-item title-tile yuetai">{{d.daytai}}</view>
+			<view class="sheng-item title-tile ritai">{{d.monthtai}}</view>
+			<!--view class="sheng-item title-tile liuyao">六曜：先胜</view>
+			<--view class="sheng-item title-tile tiansheng">九星：三碧 - 轩辕星(木) - 安神</view-->
+		</view>
+		
+		
+		<view class="sheng">
+			<view class="sheng-item title-tile xingsu">{{d.xiu}}<text class="iconfont {{d.xinluckclass}}">{{d.xinluck}}</text></view>
+			<view class="sheng-item title-tile jiangchu">{{d.zhixing}}</view>
+			<view class="sheng-item title-tile nayin">{{d.nayin}}</view>
+			<view class="sheng-item title-tile tiansheng">{{d.tianshen}} <text class="iconfont {{d.tianshenluckclass}}">{{d.tianshenluck}}</text> </view>
+		</view>
+		
+		<view class="jisa">
+			<view class="jisa-item title-tile jisheng">{{d.jishen}}</view>
+			
+		</view>
+		<view class="jisa">
+			
+			<view class="jisa-item title-tile xiongsa">{{d.xiongsha}}</view>
+		</view>
+		
+		<view class="baizhu">
+			<view class="baizhu-text title-tile">{{d.pengzu}}</view>
+		</view>
+		
+		
+		
+	</view>
+	
+	
+	
+	
+	
+</view>

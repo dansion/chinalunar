@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/set/set"
+  ],
+  "window": {
+    "defaultTitle": "老黄历",   
+    "pullRefresh": false, 
+    "allowsBounceVertical": "NO",
+    
+    "screenAdapted":true, 
+    "themeAdapted":true
+  }
+}

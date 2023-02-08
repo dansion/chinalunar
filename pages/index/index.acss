@@ -1,0 +1,749 @@
+body{
+	margin:0;
+	padding:0;
+}
+.main{
+	font-size:20px;
+	background:#6F001E;
+	color:rgba(255,255,255,0.65);
+	padding:0;
+	margin:0;
+	width:100vw;
+  height:100vh;
+  display:flex;
+	display: -webkit-flex;
+	position: relative;
+	
+}
+
+
+@keyframes show
+{
+	from {opacity:0;}
+	to {opacity:1;}
+}
+.show{
+   animation:show 2s ease;
+}
+
+
+  :root{
+  --tile-bg:rgba(0,0,0,0.2);
+  }
+
+
+/* 竖屏样式布局 */
+
+@media (min-aspect-ratio:20/1000) and (max-aspect-ratio:1000/800 ){
+
+  :root{
+	
+	
+	--base-width:100vh;
+	--base-margin:10rpx;
+	--border-radius:7rpx;
+	
+
+	--resize-width:0vh;
+	--yiji-width:calc( var(--base-width) - var(--base-margin) );
+	--yiji-item-height:12vh;
+  --today-height:50vh;
+
+
+  --font-size-xxxl:110rpx;
+  --font-size-xxl:22rpx;
+  --font-size-xl:22rpx;
+  --font-size-l:18rpx;
+  --font-size-m:16rpx;
+  --font-size-s:12rpx;
+  }
+  .main{
+	  flex-flow:row wrap;
+	  justify-content: flex-start;
+    align-content: flex-start;
+    box-sizing: border-box;
+    padding: var(--base-margin);
+    width: 100vw;
+		opacity:1;
+		height:auto;
+		overflow: hidden;
+   
+  }
+  .today{
+    width: 730rpx;
+		/*height: 220rpx; */
+		box-sizing: border-box;
+    margin-bottom: var(--base-margin);
+    flex: 0 0 auto;
+    
+  }
+  .lunar{
+      width: 100%;
+    margin-bottom: var(--base-margin);
+    padding: var(--base-margin);
+  }
+  .lunar-data{}
+  .lunar-ganzhi{margin-left:1em;}
+  .yi-text,.ji-text{
+    box-sizing: border-box;
+    padding: var(--base-margin);
+    
+    
+  }
+  .yiji{
+     width: 100%;
+  }
+  .extend{
+    box-sizing: border-box;
+    margin-top:var(--base-margin);
+		 width: 100%;
+		display: none;
+    
+	}
+	
+}
+
+
+
+@media (min-aspect-ratio:20/1000) and (max-aspect-ratio:700/1000 ){
+	:root{
+    --font-size-xxxl:280rpx;
+    --font-size-xxl:30rpx;
+    --font-size-xl:30rpx;
+    --font-size-l:20rpx;
+    --font-size-m:18rpx;
+    --font-size-s:14rpx;
+  }
+	.title-tile::before{
+		padding: 0.4em!important;
+		margin: 0.4em!important;
+	}
+}
+
+
+/* 横屏 2列 效果 */
+
+
+
+@media (min-aspect-ratio:1000/800) and (max-aspect-ratio:1000/400 ){
+
+  :root{
+
+	
+    --base-width:100vh;
+    --base-margin:10px;
+    --border-radius:7px;
+    
+
+    --resize-width:10vh;
+    --yiji-width:calc( var(--base-width) - var(--base-margin) );
+    --yiji-item-height:12vh;
+    --today-height:50vh;
+
+
+    --font-size-xxxl:30vh;
+    --font-size-xxl:8.5vh;
+    --font-size-xl:5vh;
+    --font-size-l:3.3vh;
+    --font-size-m:3vh;
+    --font-size-s:2.5vh;
+    
+	
+  }
+  .main{
+	  flex-flow:column wrap;
+	  justify-content: flex-start;
+	  align-content: flex-start;
+  }
+
+  .today{
+    width: calc( var(--base-width) - var(--base-margin) - var(--resize-width));
+	  margin-left:var(--base-margin);
+	  height:var(--today-height);
+  }
+  .lunar{
+
+    width: calc( var(--base-width) - var(--base-margin) - var(--resize-width));
+	
+	
+	  margin-left:var(--base-margin);
+	
+	  margin-bottom:var(--base-margin);
+	
+	
+	  height:calc( 100vh - var(--today-height) - var(--yiji-item-height) * 2 - var(--base-margin) * 3 );
+  }
+  .yiji{
+	  width: calc( var(--base-width) - var(--base-margin) - var(--resize-width) );
+	  margin-left:var(--base-margin);
+    height:calc(var(--yiji-item-height) * 2 + var(--base-margin));
+  }
+  .yi-text,.ji-text{
+    height:var(--yiji-item-height);
+    
+  }
+  .yi-text{
+	  margin-bottom:var(--base-margin);
+  }
+  .extend{
+    width:calc(100vw - var(--base-width) + var(--resize-width) );
+    height:100vh;
+    padding:var(--base-margin);
+  }
+	.setting{
+		margin: var(--base-margin);
+	}
+}
+
+/* 3 列布局 */
+@media (min-aspect-ratio:1000/400) and (max-aspect-ratio:1000/200 ){
+
+  :root{
+	
+	
+	--base-width:100vh;
+	--base-margin:10px;
+	--border-radius:7px;
+  
+  --today-width:80vh;
+	--resize-width:0vh;
+	--yiji-width:calc( var(--base-width) - var(--base-margin) );
+	--yiji-item-height:23vh;
+  --today-height:50vh;
+
+
+  --font-size-xxxl:45vh;
+  --font-size-xxl:11vh;
+  --font-size-xl:6.5vh;
+  --font-size-l:4.2vh;
+  --font-size-m:3.5vh;
+  --font-size-s:2.7vh;
+	
+	
+  }
+  .main{
+	  flex-flow:column wrap;
+	  justify-content: flex-start;
+	  align-content: flex-start;
+  }
+
+  .today{
+    width:var(--today-width);
+    height:100vh;
+  }
+  .lunar{
+
+    width: calc( var(--base-width) - var(--base-margin) - var(--resize-width));
+	
+    margin-top:var(--base-margin);
+	  margin-left:var(--base-margin);
+	
+	  margin-bottom:var(--base-margin);
+	  height:calc( 100vh - var(--yiji-item-height) * 2 - var(--base-margin) * 4 );
+  }
+  .yiji{
+	  width: calc( var(--base-width) - var(--base-margin) - var(--resize-width) );
+	  margin-left:var(--base-margin);
+    height:calc(var(--yiji-item-height) * 2 + var(--base-margin));
+	}
+	
+  .yi-text,.ji-text{
+    height:var(--yiji-item-height);
+    line-height: 1.5;
+    
+  }
+  .yi-text{
+	  margin-bottom:var(--base-margin);
+  }
+  .extend{
+    width:calc(100vw - var(--base-width) + var(--resize-width) - var(--today-width) );
+    height:100vh;
+    padding:var(--base-margin);
+	}
+	.setting{
+		margin: var(--base-margin);
+	}
+
+}
+
+
+@media (min-aspect-ratio:1000/400) and (max-aspect-ratio:1000/300 ){
+  :root{
+    --today-width:67vh;
+    --resize-width:18vh;
+  }
+}
+
+
+@media (min-aspect-ratio:1000/350) and (max-aspect-ratio:1000/200 ){
+  :root{
+	
+    --font-size-l:4.2vh;
+    --font-size-m:3.5vh;
+    --font-size-s:2.5vh;
+	
+  }
+}
+
+@media (min-aspect-ratio:1000/290) and (max-aspect-ratio:1000/200 ){
+  :root{
+    --today-width:120vh;
+	  --resize-width:-20vh;
+  }
+}
+/*--------------------------------------------------------*/
+
+.main::before{
+	content:"歴";
+	font-size:80vmin;
+	line-height: 100vmin;
+	width: 100vmin;
+	text-align: center;
+	position: absolute;
+	opacity: 0.07;
+	top:0;
+	font-family: "iconfont" !important;
+	z-index: 0;
+}
+
+.setting{
+	position: absolute;
+	font-size: 7vmin;
+	text-align: center;
+	border-radius:50%;
+	background: #6F001E;
+	width:8vmin;
+	height: 8vmin;
+	color: #ff0;
+	display: none;
+}
+
+
+
+/* 公历部份 */
+.today{
+	
+	font-size:var(--font-size-l);
+	flex:0 0 auto;
+	box-sizing:border-box;
+	text-align:center;
+	
+	flex-flow:row wrap;
+	display:flex;
+	justify-content:space-around;
+  align-content: center;
+	
+}
+.year-month,.week-text{
+}
+.day-text{
+  font-family: "iconfont";
+  font-size:var(--font-size-xxxl);
+  box-sizing: border-box;
+  padding-right: 0.3em;
+  letter-spacing: -0.3em;
+  margin:var(--base-margin) 0;
+
+	width:700rpx;
+	
+	line-height:var(--font-size-xxxl);
+	height:var(--font-size-xxxl);
+	
+	color:rgba(255,198,0,1);
+
+}
+
+
+/* 农历部份 */
+.lunar{
+	background:var(--tile-bg);
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:center;
+	align-content: center;
+	text-align:center;
+	border-radius:var(--border-radius);
+	line-height:1.2;
+
+}
+.lunar-data{
+  
+	font-size:var(--font-size-xxl);
+}
+.lunar-ganzhi{
+  
+	font-size:var(--font-size-xl);
+	
+}
+
+
+
+/*-------- 宜忌部份 */
+.yiji{
+	
+	box-sizing:border-box;
+	font-size:var(--font-size-l);
+	line-height:1.2;
+}
+.samll_txt{
+	font-size:var(--font-size-m);
+}
+.yi-text,.ji-text{
+	
+	
+	
+	position:relative;
+	display:inline-flex;
+	width:100%;
+	
+	flex-flow:row nowrap;
+	justify-content:left;
+	align-content: center;
+	align-items:center;
+	
+	border-radius:var(--border-radius);
+	background-color:var(--tile-bg);
+}
+.yi-text{
+	
+	margin-bottom:var(--base-margin);
+	
+	
+}
+.ji-text{
+	
+}
+
+
+.yi-text::before,.ji-text::before{
+	background:#000;
+	display:inline-block;
+	text-align:center;
+	border-radius:50%;
+	line-height:1.5;
+	color:#fff;
+	height:1.5em;
+	width:1.5em;
+	justify-content:center;
+	align-content: center;
+	align-items:center;
+	flex:0 0 auto;
+	margin:0 0.5em;
+	font-size:var(--font-size-xl);
+}
+.yi-text::before{
+	content:"宜";
+	
+	background:rgba(241,90,34,1);
+}
+.ji-text::before{
+	content:"忌";
+	background:rgba(29,177,0,1);
+}
+
+/*----------------------------*/
+.ji{color:rgba(241,90,34,1);}
+.xiong{color:rgba(29,177,0,1);}
+
+
+
+
+.extend{
+	box-sizing:border-box;
+	
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:space-between;
+	font-size:var(--font-size-l);
+}
+.title-tile{
+	background-color:var(--tile-bg);
+
+	padding:0.2em;
+	box-sizing:border-box;
+	margin-left:var(--base-margin);
+	border-radius:var(--border-radius);
+  font-size:var(--font-size-l);
+  
+  
+	
+}
+
+.title-tile::before{
+	font-size:var(--font-size-s);
+	flex:0 0 auto;
+	width:2.2em;
+	padding:0.3em 0.4em;
+	margin:0.2em;
+	
+	display:inline-flex;
+	text-align: center;
+	justify-content:center;
+	align-content: center;
+	align-items:center;
+	
+	border-radius:var(--border-radius);
+	background:rgba(0,0,0,0.7);
+	color:rgba(255,255,255,0.8);
+	
+  content:"四字标题";
+  
+}
+
+
+
+
+
+
+/*时辰吉凶 */
+.shi-jixiong{
+	display:flex;
+	flex-flow:row nowrap;
+	
+	width:100%;
+	margin-bottom:var(--base-margin);
+	
+	border-radius:0.3em;
+	background-color:var(--tile-bg);
+	
+	padding: 0.2em;
+}
+.shi-jixiong .shi-item{
+	
+	letter-spacing: 0.3em;
+  flex: 1 1 auto;
+  font-size: var(--font-size-m);
+	writing-mode: vertical-rl;
+	display:inline-flex;
+	justify-content:center;
+	align-content: center;
+	align-items:center;
+	border-radius:var(--border-radius);
+  margin-left: calc( var(--base-margin) * 0.5 );
+  background-color:var(--tile-bg);
+}
+/*.shi-jixiong .shi-item:nth-of-type(odd){ background-color:var(--tile-bg);}
+.shi-jixiong .shi-item:nth-of-type(even){ background-color:var(--tile-bg);}*/
+.shi-jixiong .now{
+	background-color:rgba(255,170,0,0.3);
+	/*animation: 2s show infinite;*/
+	animation: 0.9s 0s show linear 3 forwards normal;
+	
+}
+
+.shi-jixiong::before{
+	content:"时辰吉凶";
+	flex:0 0 auto;
+	width:2em;
+	
+	padding:1em;
+	/*letter-spacing:0.2em;*/
+	
+	border-radius:var(--border-radius);
+	background:rgba(0,0,0,0.7);
+	color:rgba(255,255,255,0.8);
+	
+	display:inline-flex;
+	justify-content:center;
+	align-content: center;
+	align-items:center;
+	
+}
+
+/* 吉神方位 */
+
+.fangwei{
+	display:flex;
+	flex-flow:row nowrap;
+	
+	margin-bottom:var(--base-margin);
+	width:100%;
+	display:inline-flex;
+	
+	justify-content:left;
+	align-content: center;
+	
+}
+.fangwei .fang-item{
+	flex:1 1 auto;
+	display:inline-flex;
+	justify-content:left;
+	align-content: center;
+  align-items:center;
+  font-size:var(--font-size-m);
+	
+}
+
+.fangwei-fu::before{content:"福神方位";}
+.fangwei-gui1::before{content:"阳贵方位";}
+.fangwei-gui0::before{content:"阴贵方位";}
+.fangwei-xi::before{content:"喜神方位";}
+.fangwei-cai::before{content:"财神方位";}
+.yuetai::before{content:"本月胎神";}
+.ritai::before{content:"本日胎神";}
+
+
+.chongsa::before{content:"相冲岁煞";}
+.yuexiang::before{content:"月名月相";}
+.liuyao{}
+	
+	
+.fangwei .title-tile:first-child,.sheng .title-tile:first-child,.jisa .title-tile:first-child,.baizhu .title-tile:first-child{
+	margin-left:0;
+}
+
+/*--------  星宿，建除，天神 */
+.sheng{
+	display:flex;
+	flex-flow:row nowrap;
+	
+	width:100%;
+	margin-bottom:var(--base-margin);
+}
+.sheng .sheng-item{
+	flex:1 1 auto;
+	
+	display:inline-flex;
+	
+	justify-content:left;
+	align-content: center;
+	align-items:center;
+}
+
+.nayin::before{content:"纳音五行";}
+.xingsu::before{content:"二十八宿";}
+.jiangchu::before{content:"十二值星";}
+.tiansheng::before{content:"十二天神";}
+
+
+
+/*--------  吉煞 */
+
+.jisa{
+	display:flex;
+	width:100%;
+	flex-flow:row nowrap;
+	margin-bottom:var(--base-margin);
+}
+.jisa-item{
+	flex:1 1 auto;
+	display:inline-flex;
+	justify-content:left;
+	align-content: center;
+	align-items:center;
+}
+
+.jisheng::before{content:"吉神宜趋";}
+.xiongsa::before{content:"凶煞宜忌";}
+
+
+
+/*--------  百袓 */
+
+.baizhu{
+	
+	width:100%;
+	flex-flow:row nowrap;
+	display:inline-flex;
+	justify-content:left;
+	align-content: center;
+	
+	
+}
+.baizhu-text{
+	flex:1 1 auto;
+	display:inline-flex;
+	align-content: center;
+	align-items:center;
+	width:100%;
+	
+}
+
+.baizhu-text::before{content:"彭祖百忌";}
+
+
+
+/* 竖屏样式布局 */
+@media (min-aspect-ratio:200/1000) and (max-aspect-ratio:999/800 ){
+
+  .lunar{
+    background-color:transparent;
+  }
+}
+
+
+/* 极端窗口情况：所有窗口内容不展示 */
+
+@media (min-aspect-ratio:100/20) and (max-aspect-ratio:100/1 ){
+  :root{
+   
+    --font-size-xxxl:12rpx;
+    --font-size-xxl:40vh;
+    --font-size-xl:40vh;
+    --font-size-l:12rpx;
+    --font-size-m:12rpx;
+    --font-size-s:12rpx;
+  }
+  page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main{  
+    font-size: 20vh;
+    line-height: 40vh;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  /*.main:before{
+   
+    font-size: 20vh;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    content:"不支持当前窗口比例。"!important;
+  }*/
+
+  .lunar{
+    width: auto;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 20vh;
+    line-height: 20vh;
+    
+    height: 100vh;
+    display:inline-flex;
+  }
+  .year-month,.day-text,.week-text,.lunar-data,.lunar-ganzhi{
+    display:inline-flex;
+    width: auto;
+    font-size: 20vh!important;
+    line-height: 20vh;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .day-text{
+    font-family: sans-serif!important;
+    letter-spacing:0;
+    padding-right:0;
+    color:#fff;
+  }
+  .day-text::after{
+    content:"日";
+  }
+  .yiji{
+    display: none;
+  }
+  .extend{
+    display: none;
+  }
+  .iconfont{
+    font-family: sans-serif!important;
+  }
+}
