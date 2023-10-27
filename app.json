@@ -4,10 +4,9 @@
     "pages/set/set"
   ],
   "window": {
-    "defaultTitle": "老黄历",   
+    "defaultTitle": "老黄历", 
     "pullRefresh": false, 
-    "allowsBounceVertical": "NO",
-    
+    "allowsBounceVertical": "NO",  
     "screenAdapted":true, 
     "themeAdapted":true
   }

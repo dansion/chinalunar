@@ -4,6 +4,7 @@ body{
 }
 .main{
 	font-size:20px;
+
 	/*background:#6F001E;
 	color:rgba(255,255,255,0.65); */
 	padding:0;
@@ -13,7 +14,7 @@ body{
   display:flex;
 	display: -webkit-flex;
 	position: relative;
-
+	
 }
 
 
@@ -28,202 +29,347 @@ body{
 
 
 :root{
-  --border-radius:5px;
-  --base-margin:5px;
+
 }
 
 
 /* 竖屏样式布局 */
 
 @media (min-aspect-ratio:20/1000) and (max-aspect-ratio:1000/800 ){
-  :root{
-    --border-radius:5rpx;
-    --base-margin:5rpx;
-  }
-  .main{
-	  flex-flow:column wrap;
-    padding:0.5em;
-    box-sizing: border-box;
-    overflow: hidden;
-    font-size:18rpx;
-  }
-  .today{
-    width: 100%;
-    flex: 2 0 auto;
-
-  }
-  .secondary{
-    width: 100%;
-    flex: 1 0 auto;
-  }
-  .extend{
-    width: 100%;
-    flex: 0 0 auto;
-    padding:var(--base-margin);
-    padding-top: 0px;
-  }
-  .day-text{
-    font-size:7em;
-  }
-  .lunar{
-    font-size:2em;
-  }
-  .text-inner{
-    font-size: 1.5em;
-  }
-
-}
-@media (min-aspect-ratio:1000/800) and (max-aspect-ratio:1000/740 ){
 
   :root{
-    --border-radius:5rpx;
-    --base-margin:5rpx;
+	
+	
+	--base-width:100vh;
+	--base-margin:10rpx;
+	--border-radius:7rpx;
+	
+
+	--resize-width:0vh;
+	--yiji-width:calc( var(--base-width) - var(--base-margin) );
+	--yiji-item-height:12vh;
+  --today-height:50vh;
+
+
+  --font-size-xxxl:110rpx;
+  --font-size-xxl:22rpx;
+  --font-size-xl:22rpx;
+  --font-size-l:18rpx;
+  --font-size-m:16rpx;
+  --font-size-s:12rpx;
   }
   .main{
 	  flex-flow:row wrap;
-    font-size:13rpx;
+	  justify-content: flex-start;
+    align-content: flex-start;
     box-sizing: border-box;
-    overflow: hidden;
-  }
-  .today{
-    width: 50vw;
-    flex: 2 0 auto;
-    flex-flow:column wrap;
-  }
-  .secondary{
-    width: 50vw;
-    flex: 1 0 auto;
-  }
-  .extend{
-    width: 100%;
-    flex: 0 0 auto;
-    padding:var(--base-margin);
-    padding-top: 0px;
-  }
-  .day-text{
-    font-size:7em;
-  }
-  .lunar{
-    font-size:2em;
-  }
-  .text-inner{
-    font-size: 2em;
-  }
-
-
-}
-/* 横屏 2列 效果 */
-@media (min-aspect-ratio:1000/700) and (max-aspect-ratio:1000/400 ){
-
-  
-
-  :root{
-    --border-radius:5rpx;
-    --base-margin:5rpx;
-  }
-  .main{
-	  flex-flow:column wrap;
-    font-size:3.5vh;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .today{
-    width: 40vw;
-    flex: 2 0 auto;
-    flex-flow:column wrap;
-  }
-  .secondary{
-    width: 40vw;
-    flex: 1 0 auto;
-  }
-  .extend{
-    width: 60vw;
-    height: 100vh;
-    flex: 0 0 auto;
-    padding:var(--base-margin);
-    padding-left: 0px;
-  }
-  .day-text{
-    font-size:8em;
-  }
-  .lunar{
-    font-size:2em;
-
-  }
-  .lunar-ganzhi{
-    font-size:0.65em;
-
-  }
-  .text-inner{
-    font-size: 1em;
-  }
-
-
-}
-/* 3 列布局 */
-@media (min-aspect-ratio:1000/400) and (max-aspect-ratio:1000/200 ){
-  /*
-  .today{
-    background-color: #f00;
-  }
-  .secondary{
-    background-color: #330;
-  }
-  .extend{
-    background-color: #530;
-  }
-*/
-
-  :root{
-    --border-radius:5px;
-    --base-margin:5px;
-  }
-  .main{
-	  flex-flow:column wrap;
-    font-size:4vh;
-    box-sizing: border-box;
-    overflow: hidden;
+    padding: var(--base-margin);
     width: 100vw;
+		opacity:1;
+		height:auto;
+		overflow: hidden;
+   
   }
   .today{
-    height: 100vh;
-    flex: 1 0 auto;
-    flex-flow:column wrap;
-    width: 25%;
-  }
-  .secondary{
-    height: 100vh;
-    flex: 1 0 auto;
-    width: 25%;
-  }
-  .extend{
-    height: 100vh;
-    width: 50%;
+    width: 730rpx;
+		/*height: 220rpx; */
+		box-sizing: border-box;
+    margin-bottom: var(--base-margin);
     flex: 0 0 auto;
-    padding:var(--base-margin);
-    padding-left: 0px;
-  }
-  .day-text{
-    font-size:10em;
-  }
-  .lunar{
-    font-size:2.2em;
-    line-height: 2;
-  }
-  .yiji{
-    flex: 1 0 auto;
-  }
-  .lunar-ganzhi{
-    line-height: 2;
-    font-size:0.65em;
     
   }
-  .text-inner{
-    font-size: 1.5em;
+
+  .secondary{
+    width:100%;
+
+  }
+
+  .lunar{
+      width: 100%;
+    margin-bottom: var(--base-margin);
+    padding: var(--base-margin);
+  }
+  .lunar-data{}
+  .lunar-ganzhi{margin-left:1em;}
+  .yi-text,.ji-text{
+    box-sizing: border-box;
+    padding: var(--base-margin);
+    
+    
+  }
+  .yiji{
+     width: 100%;
+  }
+  .extend{
+    box-sizing: border-box;
+    margin-top:var(--base-margin);
+		width: 100%;
+		display: none;
+    
+	}
+	
+}
+
+
+
+
+
+@media (min-aspect-ratio:20/1000) and (max-aspect-ratio:700/1000 ){
+	:root{
+    --font-size-xxxl:280rpx;
+    --font-size-xxl:30rpx;
+    --font-size-xl:30rpx;
+    --font-size-l:20rpx;
+    --font-size-m:18rpx;
+    --font-size-s:14rpx;
+  }
+	.title-tile::before{
+		padding: 0.4em!important;
+		margin: 0.4em!important;
+	}
+}
+
+@media (min-aspect-ratio:1000/800) and (max-aspect-ratio:1000/700 ){
+  :root{
+    --base-width:100vh;
+    --base-margin:7rpx;
+    --border-radius:5rpx;
+  
+    --resize-width:0vh;
+    --yiji-width:calc( var(--base-width) - var(--base-margin) );
+    --yiji-item-height:10vh;
+    --today-height:35vh;
+  
+  
+    --font-size-xxxl:110rpx;
+    --font-size-xxl:22rpx;
+    --font-size-xl:20rpx;
+    --font-size-l:15rpx;
+    --font-size-m:12rpx;
+    --font-size-s:10rpx;
+    }
+    .main{
+      flex-flow:row wrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+    }
+
+    .today{
+      width: 50%;
+  
+    }
+    .secondary{
+      width: 50%;
+      height: 32vh;
+      padding:var(--base-margin);
+    }
+    .lunar{
+
+      flex:3 3 auto;
+      margin-bottom:var(--base-margin);
+    }
+    .yiji{
+
+      flex:1 1 auto;
+    }
+    .yi-text{
+      
+      background-color: #f00;
+    }
+    .extend{
+      height:68vh;
+      padding:var(--base-margin);
+      background-color: #f00;
+      overflow: hidden;
+    }
+    
+
+}
+
+
+/* 横屏 2列 效果 */
+
+
+
+@media (min-aspect-ratio:1000/700) and (max-aspect-ratio:1000/400 ){
+
+  :root{
+
+	
+    --base-width:100vh;
+    --base-margin:10px;
+    --border-radius:7px;
+    
+
+    --resize-width:10vh;
+    --yiji-width:calc( var(--base-width) - var(--base-margin) );
+    --yiji-item-height:12vh;
+    --today-height:60vh;
+
+
+    --font-size-xxxl:30vh;
+    --font-size-xxl:8.5vh;
+    --font-size-xl:5vh;
+    --font-size-l:3.3vh;
+    --font-size-m:3vh;
+    --font-size-s:2.5vh;
+    
+	
+  }
+  .main{
+	  flex-flow:column wrap;
+	  justify-content: flex-start;
+	  align-content: flex-start;
+  }
+
+  .today{
+    width: calc( var(--base-width) - var(--base-margin) - var(--resize-width));
+	  margin-left:var(--base-margin);
+	  height:var(--today-height);
+  }
+  .secondary{
+    height: 40vh;
+  }
+
+  
+  .lunar{
+    width: calc( var(--base-width) - var(--base-margin) - var(--resize-width));
+	  margin-left:var(--base-margin);
+	  margin-bottom:var(--base-margin);
+    flex: 2 2 auto;
+	  
+  }
+  .yiji{
+	  width: calc( var(--base-width) - var(--base-margin) - var(--resize-width) );
+	  margin-left:var(--base-margin);
+    flex: 1 1 auto;
+    flex-flow:column wrap;
+    display: flex;
+    background-color: #ff0;
+
+  }
+  .yi-text,.ji-text{
+    display: flex;
+  }
+  .yi-text{
+	  margin-bottom:var(--base-margin);
+  }
+  .extend{
+    width:calc(100vw - var(--base-width) + var(--resize-width) );
+    height:100vh;
+    padding:var(--base-margin);
+  }
+	.setting{
+		margin: var(--base-margin);
+	}
+}
+
+/* 3 列布局 */
+@media (min-aspect-ratio:1000/400) and (max-aspect-ratio:1000/200 ){
+
+  :root{
+	
+	
+	--base-width:100vh;
+	--base-margin:10px;
+	--border-radius:7px;
+  
+  --today-width:80vh;
+	--resize-width:0vh;
+	--yiji-width:calc( var(--base-width) - var(--base-margin) );
+	--yiji-item-height:23vh;
+  --today-height:50vh;
+
+
+  --font-size-xxxl:45vh;
+  --font-size-xxl:11vh;
+  --font-size-xl:6.5vh;
+  --font-size-l:4.2vh;
+  --font-size-m:3.5vh;
+  --font-size-s:2.7vh;
+	
+	
+  }
+  .main{
+	  flex-flow:column wrap;
+	  justify-content: flex-start;
+	  align-content: flex-start;
+  }
+
+  .today{
+    width:var(--today-width);
+    height:100vh;
+  }
+  .secondary{
+    height: 100vh;
+   
+  }
+  .lunar{
+
+    width: calc( var(--base-width) - var(--base-margin) - var(--resize-width));
+	
+    margin-top:var(--base-margin);
+	  margin-left:var(--base-margin);
+	  margin-bottom:var(--base-margin);
+    flex: 2 2 auto;
+  }
+  .yiji{
+	  width: calc( var(--base-width) - var(--base-margin) - var(--resize-width) );
+	  margin-left:var(--base-margin);
+    flex: 1 1 auto;
+    background-color: #f00;
+	}
+	
+  .yi-text,.ji-text{
+    height:var(--yiji-item-height);
+    line-height: 1.5;
+    
+  }
+  .yi-text{
+	  margin-bottom:var(--base-margin);
+  }
+  .extend{
+    width:calc(100vw - var(--base-width) + var(--resize-width) - var(--today-width) - var(--base-margin) * 1 );
+    height:100vh;
+    padding:var(--base-margin);
+	}
+	.setting{
+		margin: var(--base-margin);
+	}
+
+}
+
+
+@media (min-aspect-ratio:1000/400) and (max-aspect-ratio:1000/300 ){
+  :root{
+    --today-width:65vh;
+    --resize-width:20vh;
+
+    --font-size-xl:6vh;
+    --font-size-l:3.5vh;
+    --font-size-m:3.5vh;
+    --font-size-s:2.5vh;
+
   }
 }
 
+
+@media (min-aspect-ratio:1000/350) and (max-aspect-ratio:1000/200 ){
+  :root{
+	
+    --font-size-l:4.2vh;
+    --font-size-m:3.5vh;
+    --font-size-s:2.5vh;
+	
+  }
+}
+
+@media (min-aspect-ratio:1000/290) and (max-aspect-ratio:1000/200 ){
+  :root{
+    --today-width:120vh;
+	  --resize-width:-20vh;
+  }
+}
 /*--------------------------------------------------------*/
 
 .main::before{
@@ -254,58 +400,49 @@ body{
 
 /* 公历部份 */
 .today{
+	
+	font-size:var(--font-size-l);
+	flex:0 0 auto;
 	box-sizing:border-box;
 	text-align:center;
+	
+	flex-flow:row wrap;
 	display:flex;
 	justify-content:space-around;
   align-content: center;
-	text-align:center;
+	
 }
-
-
-.year-month,.week-text{
-  flex: 1 0 auto;
-
-  display:flex;
-  flex-flow:row wrap;
-  align-items: center;
-  align-content: center;
-  justify-content:center;
-  text-align: center;
-}
-.text-inner{
-  min-width: 6em;
-  align-content: center;
-  align-items: center;
-
-}
-.day-text{
-  font-family: "iconfont";
-  box-sizing: border-box;
-  letter-spacing: -0.3em;
-  padding-right:0.3em;
-	color:rgba(255,198,0,1);
-  color:var(--light_color);
-  flex: 0 0 auto;
-  display:flex;
-  flex-flow:row wrap;
-  justify-content:center;
-  align-content: center;
-  align-items: center;
-}
-
 
 .secondary{
+
   display: flex;
   flex-flow:column wrap;
   box-sizing: border-box;
-  padding: var(--base-margin);;
 }
+.year-month,.week-text{
+}
+.day-text{
+  font-family: "iconfont";
+  font-size:var(--font-size-xxxl);
+  box-sizing: border-box;
+  padding-right: 0.3em;
+  letter-spacing: -0.3em;
+  margin:var(--base-margin) 0;
+
+	width:700rpx;
+	
+	line-height:var(--font-size-xxxl);
+	height:var(--font-size-xxxl);
+	
+	color:rgba(255,198,0,1);
+  color:var(--light_color);
+}
+
+
 
 /* 农历部份 */
 .lunar{
 	background:var(--tile-bg);
-  margin-bottom: var(--base-margin);
 	display:flex;
 	flex-flow:row wrap;
 	justify-content:center;
@@ -313,13 +450,15 @@ body{
 	text-align:center;
 	border-radius:var(--border-radius);
 	line-height:1.2;
-  flex: 1 0 auto;
+
 }
 .lunar-data{
   
-
+	font-size:var(--font-size-xxl);
 }
 .lunar-ganzhi{
+  
+	font-size:var(--font-size-xl);
 	
 }
 
@@ -330,16 +469,14 @@ body{
 	box-sizing:border-box;
 	font-size:var(--font-size-l);
 	line-height:1.2;
-  display: flex;
-  flex-flow:column wrap;
-
 }
 .samll_txt{
 	font-size:var(--font-size-m);
 }
 .yi-text,.ji-text{
+	
 	position:relative;
-	display:flex;
+	display:inline-flex;
 	width:100%;
 	flex-flow:row nowrap;
 	justify-content:left;
@@ -348,17 +485,16 @@ body{
 	
 	border-radius:var(--border-radius);
 	background-color:var(--tile-bg);
-  padding:0.5em 0.5em 0.5em 0;
-  width: calc( 100% - 0.5em);
-  line-height: 1.5;
-  flex: 1 0 auto;
+  height: 2em;
 }
 .yi-text{
+	
 	margin-bottom:var(--base-margin);
-  
+	
+	
 }
 .ji-text{
- 
+	
 }
 
 
@@ -369,6 +505,9 @@ body{
 	border-radius:50%;
 	line-height:1.5;
 	color:#fff;
+
+
+
 
 	height:1.5em;
 	width:1.5em;
@@ -401,20 +540,23 @@ body{
 	display:flex;
 	flex-flow:row wrap;
 	justify-content:space-between;
-  
-  overflow: hidden;
+	font-size:var(--font-size-l);
 }
 .title-tile{
 	background-color:var(--tile-bg);
+
 	padding:0.2em;
 	box-sizing:border-box;
 	margin-left:var(--base-margin);
 	border-radius:var(--border-radius);
+  font-size:var(--font-size-l);
+  
+  
+	
 }
 
 .title-tile::before{
 	font-size:var(--font-size-s);
-  font-size:0.7em;
 	flex:0 0 auto;
 	width:2.2em;
 	padding:0.3em 0.4em;
@@ -445,32 +587,29 @@ body{
 .shi-jixiong{
 	display:flex;
 	flex-flow:row nowrap;
+	
 	width:100%;
 	margin-bottom:var(--base-margin);
+	
 	border-radius:0.3em;
 	background-color:var(--tile-bg);
-	padding: calc( var(--base-margin) * 1 );
+	
+	padding: 0.2em;
 }
 .shi-jixiong .shi-item{
 	
 	letter-spacing: 0.3em;
   flex: 1 1 auto;
+  font-size: var(--font-size-m);
 	writing-mode: vertical-rl;
 	display:inline-flex;
 	justify-content:center;
 	align-content: center;
 	align-items:center;
 	border-radius:var(--border-radius);
-  margin-left: calc( var(--base-margin) * 1 );
-  background-color:rgba(0,0,0,0.1);
+  margin-left: calc( var(--base-margin) * 0.5 );
+  background-color:var(--tile-bg);
 }
-.shi-item:nth-child(5),.shi-item:nth-child(6),.shi-item:nth-child(7),.shi-item:nth-child(8),.shi-item:nth-child(9),.shi-item:nth-child(10){
-  background-color:rgba(255,255,255,0.1);
-}
-
-
-
-
 /*.shi-jixiong .shi-item:nth-of-type(odd){ background-color:var(--tile-bg);}
 .shi-jixiong .shi-item:nth-of-type(even){ background-color:var(--tile-bg);}*/
 .shi-jixiong .now{
@@ -509,9 +648,11 @@ body{
 .fangwei{
 	display:flex;
 	flex-flow:row nowrap;
+	
 	margin-bottom:var(--base-margin);
 	width:100%;
 	display:inline-flex;
+	
 	justify-content:left;
 	align-content: center;
 	
@@ -533,6 +674,8 @@ body{
 .fangwei-cai::before{content:"财神方位";}
 .yuetai::before{content:"本月胎神";}
 .ritai::before{content:"本日胎神";}
+
+
 .chongsa::before{content:"相冲岁煞";}
 .yuexiang::before{content:"月名月相";}
 .liuyao{}
@@ -587,6 +730,7 @@ body{
 .xiongsa::before{content:"凶煞宜忌";}
 
 
+
 /*--------  百袓 */
 
 .baizhu{
@@ -607,16 +751,19 @@ body{
 	width:100%;
 	
 }
+
 .baizhu-text::before{content:"彭祖百忌";}
 
 
 
 /* 竖屏样式布局 */
 @media (min-aspect-ratio:200/1000) and (max-aspect-ratio:999/800 ){
+
   .lunar{
     background-color:transparent;
   }
 }
+
 
 /* 极端窗口情况：所有窗口内容不展示 */
 
@@ -665,21 +812,20 @@ body{
     height: 100vh;
     display:inline-flex;
   }
-
-
   .year-month,.day-text,.week-text,.lunar-data,.lunar-ganzhi{
-
-
+    display:inline-flex;
+    width: auto;
+    font-size: 20vh!important;
+    line-height: 20vh;
     margin: 0;
     padding: 0;
     text-align: center;
-    
-
   }
   .day-text{
     font-family: sans-serif!important;
     letter-spacing:0;
-
+    padding-right:0;
+    color:#fff;
   }
   .day-text::after{
     content:"日";

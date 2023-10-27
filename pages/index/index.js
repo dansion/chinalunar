@@ -10,45 +10,38 @@ Page({
     d:{},
     toutchEvent:{},
     now:{},
-    istoday:true
+    istoday:true,
+    theme:'dark',
+    color:[{h:174,s:100,l:24},{h:347,s:78,l:29}],
+    lightColor:[{h:108,s:38,l:84},{h:3,s:89,l:90}],
   },
   onLoad(query) {
+    this.animation = my.createAnimation({
+      transformOrigin: "70% 30% 0",
+      duration: 300,
+      timeFunction: "ease-in",
+      delay: 0,
+    });
 
-    //my.setOptionMenu({
-    //  icon: '在',
-    //});
-
-  // 页面加载
-
-  this.animation = my.createAnimation({
-   transformOrigin: "70% 30% 0",
-    duration: 300,
-    timeFunction: "ease-in",
-    delay: 0,
-  });
-  //console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
-  //"titleBarColor": "#6F001E",
-  //console.log(color.HexToHsl('#6F001E'))
-  //console.log(color.HslToHex("hsl(343,100%,21%)"));
-  //console.log(color.HslArrToHex(343,100,21));
-
-   //let _rancolor=Math.floor(Math.random()*360);
-   //console.log(_rancolor);
-
-
-   let _rancolor=160;
-
-   this.setColor(180);
-   //this.data.bgcolor=color.HslArrToHex(_rancolor,100,21);
-
-    //my.setNavigationBar({"titleBarColor": "#FF0000"});
-    //my.setNavigationBar({backgroundColor:this.data.bgcolor})
-
+    this.setTheme();
+  },
+  setTheme(){
+    my.getSystemInfo({
+      success: (res) => {
+        // 定义
+        let {theme='dark'}=res;
+        this.setData({theme:theme});
+      },
+      fail:(res) => {
+        //reject(res);
+      }
+    })
   },
   onOptionMenuClick(){
-    my.showToast({content:"顶部菜单"});
+    //my.showToast({content:"顶部菜单"});
   },
   onReady() {
+    //console.log('true page: onReady');
     this.setPageData();
   },
   onPress(e){
@@ -56,14 +49,11 @@ Page({
     my.navigateTo({url:'/pages/set/set'});
   },
   touchMoveFun(e){
-   
   },
   touchStartFun(e){
-    
-  this.animation.opacity(0.1).step();
-  this.setData({ animation: this.animation.export()})
-  this.data.toutchEvent=e.touches[0];
-
+    this.animation.opacity(0.1).step();
+    this.setData({ animation: this.animation.export()})
+    this.data.toutchEvent=e.touches[0];
   },
   touchEndFun(e){
     //console.log("start");
@@ -126,11 +116,19 @@ Page({
       }
     }
   },
-  setColor(H,S=100,L=21){
+  setColor(H,S=50,L=75){
     let bgcolor=this.data.bgcolor;
         bgcolor=color.HslArrToHex(H,S,L);
+
+    //let dayFontColor=color.HslArrToHex(H+180,100-S,100-L);
+
+
         console.log(bgcolor);
         this.setData({bgcolor});
+        //this.setData({dayFontColor});
+
+
+
 
     my.setNavigationBar({backgroundColor:bgcolor,color:"#FFFFFF"});
   },
@@ -174,23 +172,27 @@ Page({
       }
     }
 
+    // 对界面的颜色进行设置
 
-    if(!iswork){
-      this.setColor(340);
-    }else{
-      this.setColor(180);
+    let colorObj=this.data.color;
+    let theme=this.data.theme;
+    if(theme=='light'){
+      colorObj=this.data.lightColor;
     }
-
+    let _color=colorObj[0];
+    if(!iswork){
+      _color=colorObj[1];
+    }
     
-    //console.log(lunar.HolidayUtil.getHoliday(2021,10,1));
 
+    let {h,s,l}=_color;
+    this.setColor(h,s,l);
+
+    /**/
+    //console.log(lunar.HolidayUtil.getHoliday(2021,10,1));
     //console.log(lunar_d.getTimes());
     //console.log(lunar.Lunar.fromDate(new Date()).toFullString());
     // 节日：.getFestivals()
-
-
-
-
     var d=this.data.d;
         d.week=solar_d.getWeekInChinese();
         d.festivals=solar_d.getFestivals() + lunar_d.getFestivals() + lunar_d.getJieQi();
@@ -200,15 +202,10 @@ Page({
         d.xingzuo=solar_d.getXingZuo();
 
     /* 特别颜色定义 */
-    if(lunar_d.getFestivals()=="春节"){
-      this.setColor(347,100,44);
-    }
     if(solar_d.getFestivals()=="情人节"){
       this.setColor(333,78,57);
     }
-
     /*
-
       .getMonthInChinese()
       .getDayInChinese()
       d.getYearInGanZhi()
@@ -353,17 +350,14 @@ Page({
     }
     //console.log(d.times)
 
-   
-
-
-
-
     this.setData({d});
   },
+
+
   onShow() {
     // 页面显示
-
-     my.showToast({content:"左右滑动按天翻动日历，上下滑动按月翻动，点击回到当前日期"});
+    this.setTheme();
+    my.showToast({content:"左右滑动按天翻动日历，上下滑动按月翻动，点击回到当前日期"});
   },
   onHide() {
     // 页面隐藏
