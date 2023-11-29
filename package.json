@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "lunar-javascript": "^1.6.5"
+    "lunar-javascript": "^1.6.5",
+    "umtrack-alipay": "^2.8.0"
   }
 }
