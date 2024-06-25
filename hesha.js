@@ -9,9 +9,6 @@ function call(t, e, n) {
 	}
 }
 
-
-
-
 function onShow() {
   /*
 	try {
