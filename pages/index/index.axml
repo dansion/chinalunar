@@ -47,8 +47,8 @@
 		<view class="sheng">
 			<view class="sheng-item title-tile chongsa"> 冲{{d.chong}}，煞{{d.sha}} </view>
 			<!--view class="sheng-item title-tile yuexiang">仲冬，九夜</view-->
-			<view class="sheng-item title-tile yuetai">{{d.daytai}}</view>
-			<view class="sheng-item title-tile ritai">{{d.monthtai}}</view>
+			<view class="sheng-item title-tile ritai">{{d.daytai}}</view>
+			<view class="sheng-item title-tile yuetai">{{d.monthtai}}</view>
 			<!--view class="sheng-item title-tile liuyao">六曜：先胜</view>
 			<--view class="sheng-item title-tile tiansheng">九星：三碧 - 轩辕星(木) - 安神</view-->
 		</view>
